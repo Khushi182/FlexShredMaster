@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -116,13 +117,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 import os 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MESSAGE_TAGS={
+    messages.ERROR:'danger'
+}
+
+
+STRIPE_PUBLIC_KEY = 'pk_test_51OYS2kSCDVg5LZwe7M1eCxIvoBrIyaS7W3RPThRHL0CQg2qppZxKdEfixnesEBuCSuWjDbnhUwkWGgXmoeGAED2l00mlfcdBIE'
+STRIPE_SECRET_KEY = 'sk_test_51OYS2kSCDVg5LZweSrwdsrQWnYeN84NO3a56XrMoEpDnMWlmJt4XlZfKtyY9dTDuGTurleWb7wAT0vQz2KZ98jLr00yAVOVrmW'
+
